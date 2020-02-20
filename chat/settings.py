@@ -78,7 +78,12 @@ WSGI_APPLICATION = 'chat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = { 'default': { 'ENGINE': 'django.db.backends.sqlite3', 'NAME': 'mydatabase', } }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
@@ -111,10 +116,15 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.LimitOffsetPagination',
+
+     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],   
     'PAGE_SIZE': 100
 }
 
-MESSAGES_TO_LOAD = 15
+MESSAGES_TO_LOAD = 100
 
 # In settings.py
 CHANNEL_LAYERS = {
