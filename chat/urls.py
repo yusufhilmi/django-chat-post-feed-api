@@ -8,7 +8,7 @@ urlpatterns = [
 
     path('', include('core.urls')),
 
-    path('api/v0/', include('posts.urls')),
+    path('api/v0/', include('posts.urls')), # CAREFUL
 
     path('login/', auth_views.LoginView.as_view(), name='login'),
 
