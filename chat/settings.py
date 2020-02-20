@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # Apps
     'core',
+    'posts',
 
     # 3rd party
     'rest_framework',
@@ -115,13 +116,13 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated'
     ],
     'DEFAULT_PAGINATION_CLASS':
-        'rest_framework.pagination.LimitOffsetPagination',
+        'rest_framework.pagination.PageNumberPagination',
 
      'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ],   
-    'PAGE_SIZE': 100
+    'PAGE_SIZE': 50
 }
 
 MESSAGES_TO_LOAD = 100
