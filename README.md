@@ -1,11 +1,11 @@
-# ChatApp  #
-
-![](http://g.recordit.co/JYruQDLd0h.gif)
+# Chat & Post Feed API  #
 
 A small functional person-to-person message center application built using Django.
-It has a REST API and uses WebSockets to notify clients of new messages and 
-avoid polling.
+It has been developed for a social media app I wanted to ship called i-need. 
+It has built with DRF and works that way. API Endpoints will be added soon.
 
+Chat is also available for web
+------------------------------
 ## Architecture ##
  - When a user logs in, the frontend downloads the user list and opens a
    Websocket connection to the server (notifications channel).
@@ -33,19 +33,6 @@ distributed environment.
 Please take a look at the link below for more information:
 https://channels.readthedocs.io/en/latest/introduction.html
 
-
-**update 04/06/19**
-
-- using pipenv for package management
-- move to Channels 2
-- use redis as the channel layer backing store. for more information, please check [channels_resid](https://github.com/django/channels_redis)
-
-### Database ###
-For this demo, I'm using a simple MySQL setup. If more performance is required, 
-a MySQL cluster / shard could be deployed.
-
-PD: I'm using indexes to improve performance.
-
 ## Assumptions ##
 Because of time constraints this project lacks of:
 
@@ -71,27 +58,24 @@ pipenv --python 3 shell
 ```bash
 pipenv install
 ```
-3. Create a MySQL database
-```sql
-CREATE DATABASE chat CHARACTER SET utf8;
-```
+
 4. Init database
 ```bash
-./manage.py migrate
+python manage.py migrate
 ```
 5. Run tests
 ```bash
-./manage.py test
+python manage.py test
 ```
 
 6. Create admin user
 ```bash
-./manage.py createsuperuser
+python manage.py createsuperuser
 ```
 
 7. Run development server
 ```bash
-./manage.py runserver
+python manage.py runserver
 ```
 
 To override default settings, create a local_settings.py file in the chat folder.
